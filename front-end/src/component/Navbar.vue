@@ -1,7 +1,7 @@
 <template>
 
   <nav class="navbar navbar-expand-sm navbar-light bg-white">
-    <a class="navbar-brand font-weight-bold" href="/"> Kimnoin </a>
+    <a class="navbar-brand font-weight-bold" href="/"> Minssan9 </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#alt" aria-controls="alt"
             aria-expanded="false" aria-label="Toggle navigation">

@@ -21,9 +21,9 @@
       </div>
 
       <div v-if="this.$route.params.id" class="col-8">
-    <pre id="scroll" class="pre-scrollable" style="min-height:340px">
-      <ChatText v-for="(message,index) in chat" :key="index" :message="message"></ChatText>
-    </pre>
+        <pre id="scroll" class="pre-scrollable" style="min-height:340px">
+          <ChatText v-for="(message,index) in chat" :key="index" :message="message"></ChatText>
+        </pre>
         <form class="mt-3 row justify-content-end">
           <div class="col-9">
             <input v-model="send_message" type="text" placeholder="Message..." class="form-control" autofocus/>
