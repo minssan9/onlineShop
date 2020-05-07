@@ -33,7 +33,6 @@
     },
     mounted() {
       this.FETCH_MANAGER_CHAT_LIST()
-
     }
   }
 </script>

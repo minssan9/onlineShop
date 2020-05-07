@@ -83,7 +83,6 @@
         this.socket = new SockJS('http://localhost:8090/websockethandler')
         this.stompClient = Stomp.over(this.socket)
 
-
         this.stompClient.connect({}, () => {
           this.connected = true
           // 관리자가 특정 회원에게 메세지 전달

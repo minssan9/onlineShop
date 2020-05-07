@@ -80,8 +80,6 @@
 </script>
 
 <style scoped>
-
-
   .reponsive {
     background-size: cover;
     background-position: center;
