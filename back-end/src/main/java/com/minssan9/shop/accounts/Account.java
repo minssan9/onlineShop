@@ -1,18 +1,36 @@
 package com.minssan9.shop.accounts;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.minssan9.shop.carts.Cart;
 import com.minssan9.shop.chats.Chat;
-import com.minssan9.shop.items.Item;
 import com.minssan9.shop.orders.Order;
 import com.minssan9.shop.qnas.QnA;
 import com.minssan9.shop.reviews.Review;
 
-import lombok.*;
-
-import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
@@ -24,6 +42,7 @@ import java.util.Set;
 @ToString
 @JsonSerialize(using = AccountSerializer.class)
 public class Account {
+    public static final GuestAccount GUEST_USER = new GuestAccount();
 
     @Id
     @GeneratedValue
@@ -37,7 +56,11 @@ public class Account {
     private String email;
     private int level;
     private int point;
-
+    @Column(unique = true)
+    private Long socialId;    
+    @Column
+    @Enumerated(EnumType.STRING)
+    private SocialCode socialCode;
 
     @OneToOne(mappedBy = "account")
     private Chat chat;
@@ -62,5 +85,40 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Review> reviewList;
 
+
+    public AccountDto toAccountDto() {
+        return AccountDto.builder()
+                .accountId(accountId)
+                .name(name)
+                .password(password)
+                .phone(phone)
+                .email(email)
+                .role(roles)
+                .build();
+    }
+    
+    public Account(String name, String password, String email, String phone, Long socialId, SocialCode socialCode, Set<AccountRoles> roles) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.socialId = socialId;
+        this.socialCode = socialCode;
+        this.roles = roles;
+    }
+
+    public boolean isGuestUser() {
+        return false;
+    }
+	private static class GuestAccount extends Account {
+        @Override
+        public boolean isGuestUser() {
+            return true;
+        }
+    }
+
+    public boolean matchPassword(String inputPassword, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(inputPassword, password);
+    }
 
 }
