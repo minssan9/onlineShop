@@ -57,7 +57,7 @@ public class MessageController {
         messageRepository.save(msg);
 
 
-        logger.info("메세지 전달:" + message.toString());
+        logger.info("메세지 전달:" + message.toString()); 
         messagingTemplate.convertAndSend(String.format("/queue/board/%d", id), message);
     }
 

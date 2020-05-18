@@ -46,6 +46,7 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
+    port: 8091,
     historyApiFallback: true,
     noInfo: true,
     overlay: true
@@ -53,7 +54,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',  
 }
 
 if (process.env.NODE_ENV === 'production') {

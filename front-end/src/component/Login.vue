@@ -15,8 +15,8 @@
         <button class="btn" :class="{'btn-success': !invalidForm}" type="submit" :disabled="invalidForm">Log In</button>
       </div>
       <div>
-        <a href="https://kauth.kakao.com/oauth/authorize?client_id=e32a4d819f76b2ca4e652a2477ecf982&redirect_uri=http://minssan9.iptime.org:8090/api/kakao/oauth&response_type=code">
-                        <img src="/images/kakao_login/kakao_account_btn.png"></a>
+        <a href="https://kauth.kakao.com/oauth/authorize?client_id=e32a4d819f76b2ca4e652a2477ecf982&redirect_uri=http://localhost:8090/api/kakao/oauth&response_type=code">
+                        <img :src="'../../assets/images/kakao_login/kakao_account_btn.png'"></a>
       </div>
 
     </form>

@@ -1,17 +1,8 @@
 package com.minssan9.shop;
 
-import com.minssan9.shop.accounts.Account;
-import com.minssan9.shop.accounts.AccountController;
-import com.minssan9.shop.accounts.AccountRoles;
-import com.minssan9.shop.accounts.AccountService;
-import com.minssan9.shop.chats.Chat;
-import com.minssan9.shop.chats.ChatRepository;
-import com.minssan9.shop.items.Item;
-import com.minssan9.shop.items.ItemFile;
-import com.minssan9.shop.items.ItemFileRepository;
-import com.minssan9.shop.items.ItemRepository;
-import com.minssan9.shop.orders.Order;
-import com.minssan9.shop.orders.OrderRepository;
+import java.util.HashSet;
+import java.util.Properties;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,20 +12,20 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.mail.MailSender;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.persistence.EntityNotFoundException;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Properties;
-import java.util.Set;
+import com.minssan9.shop.accounts.Account;
+import com.minssan9.shop.accounts.AccountRoles;
+import com.minssan9.shop.accounts.AccountService;
+import com.minssan9.shop.chats.Chat;
+import com.minssan9.shop.chats.ChatRepository;
 
 @SpringBootApplication
+@PropertySource(value = {"classpath:account.properties" })
 public class ShopApplication {
 
     private Logger logger= LoggerFactory.getLogger(ShopApplication.class);
