@@ -96,16 +96,7 @@ public class Account {
                 .role(roles)
                 .build();
     }
-    
-    public Account(String name, String password, String email, String phone, Long socialId, SocialCode socialCode, Set<AccountRoles> roles) {
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
-        this.socialId = socialId;
-        this.socialCode = socialCode;
-        this.roles = roles;
-    }
+
 
     public boolean isGuestUser() {
         return false;

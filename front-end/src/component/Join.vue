@@ -74,7 +74,7 @@
         address: '',
         email: '',
         phone: '',
-
+        status: '', 
         idExist: false,
         idNotExist: false,
         isSubmit: false,

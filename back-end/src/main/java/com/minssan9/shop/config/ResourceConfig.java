@@ -29,6 +29,7 @@ ResourceConfig extends ResourceServerConfigurerAdapter {
                 .anonymous()
                 .and()
                 .authorizeRequests()
+                .mvcMatchers(HttpMethod.POST, "/api/accounts/join/check").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/websockethandler/**").permitAll()
                 .antMatchers("/app/**").permitAll()
