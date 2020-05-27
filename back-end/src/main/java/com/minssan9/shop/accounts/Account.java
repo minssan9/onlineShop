@@ -39,7 +39,7 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode(of = "id")
 @Builder
-@ToString
+@ToString(exclude = "chat")
 @JsonSerialize(using = AccountSerializer.class)
 public class Account {
     public static final GuestAccount GUEST_USER = new GuestAccount();
@@ -96,8 +96,22 @@ public class Account {
                 .role(roles)
                 .build();
     }
+    public Account (String name, String password, String email, String phone, Long socialId, SocialCode  socialCode, Set<AccountRoles>  roles){
+        this.name=name;
+        this.password = password;
+        this.email=email;
+        this.phone=phone;
+        this.socialId = socialId;
+        this.socialCode = socialCode;
+        this.roles= roles;
+    }
 
-
+    @Override
+    public String toString() {
+        return "Account{" + "accountId=" + accountId + ", name='" + name + '\'' + ", password='" + password + '\''
+                + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", socialId=" + socialId
+                + ", socialCode=" + socialCode + ", role=" + roles + '}';
+    }
     public boolean isGuestUser() {
         return false;
     }

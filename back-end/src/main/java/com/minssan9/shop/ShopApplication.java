@@ -34,10 +34,10 @@ public class ShopApplication {
     private String mailSenderUsername;
     @Value("${mail.sender.password}")
     private String mailSenderPassword;
-    @Value("${user.admin.username}")
-    private String userAdminUsername;
-    @Value("${user.admin.password}")
-    private String userAdminPassword;
+//    @Value("${user.admin.username}")
+//    private String userAdminUsername;
+//    @Value("${user.admin.password}")
+//    private String userAdminPassword;
 
     private Logger logger= LoggerFactory.getLogger(ShopApplication.class);
 
@@ -85,17 +85,17 @@ public class ShopApplication {
                 roles.add(AccountRoles.USER);
                 roles.add(AccountRoles.ADMIN);
 
-                Account admin = Account.builder()
-                        .accountId(userAdminUsername)
-                        .email(mailSenderUsername + "@gmail.com")
-                        .address("주인장집")
-                        .name("관리자")
-                        .password(userAdminPassword)
-                        .phone("01000000000")
-                        .roles(roles)
-                        .level(50)
-                        .point(7777)
-                        .build();
+//                Account admin = Account.builder()
+//                        .accountId(userAdminUsername)
+//                        .email(mailSenderUsername + "@gmail.com")
+//                        .address("주인장집")
+//                        .name("관리자")
+//                        .password(userAdminPassword)
+//                        .phone("01000000000")
+//                        .roles(roles)
+//                        .level(50)
+//                        .point(7777)
+//                        .build();
 
 //                Account saveAccount2 = accountService.createAccount(admin);
 
