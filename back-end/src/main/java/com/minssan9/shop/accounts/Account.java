@@ -42,7 +42,7 @@ import lombok.ToString;
 @ToString(exclude = "chat")
 @JsonSerialize(using = AccountSerializer.class)
 public class Account {
-    public static final GuestAccount GUEST_USER = new GuestAccount();
+//    public static final GuestAccount GUEST_USER = new GuestAccount();
 
     @Id
     @GeneratedValue
@@ -56,18 +56,12 @@ public class Account {
     private String email;
     private int level;
     private int point;
-    @Column(unique = true)
-    private Long socialId;    
-    @Column
-    @Enumerated(EnumType.STRING)
-    private SocialCode socialCode;
 
     @OneToOne(mappedBy = "account")
     private Chat chat;
 
     @OneToOne(mappedBy = "account")
     private AccountFile accountFile;
-
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
@@ -85,45 +79,54 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Review> reviewList;
 
+    @Column(unique = true)
+    private Long socialId;
 
-    public AccountDto toAccountDto() {
-        return AccountDto.builder()
-                .accountId(accountId)
-                .name(name)
-                .password(password)
-                .phone(phone)
-                .email(email)
-                .role(roles)
-                .build();
-    }
-    public Account (String name, String password, String email, String phone, Long socialId, SocialCode  socialCode, Set<AccountRoles>  roles){
-        this.name=name;
-        this.password = password;
-        this.email=email;
-        this.phone=phone;
-        this.socialId = socialId;
-        this.socialCode = socialCode;
-        this.roles= roles;
-    }
+    @Column
+    @Enumerated(EnumType.STRING)
+    private SocialCode socialCode;
 
-    @Override
-    public String toString() {
-        return "Account{" + "accountId=" + accountId + ", name='" + name + '\'' + ", password='" + password + '\''
-                + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", socialId=" + socialId
-                + ", socialCode=" + socialCode + ", role=" + roles + '}';
-    }
-    public boolean isGuestUser() {
-        return false;
-    }
-	private static class GuestAccount extends Account {
-        @Override
-        public boolean isGuestUser() {
-            return true;
-        }
-    }
+//    public AccountDto toAccountDto() {
+//        return AccountDto.builder()
+//                .accountId(accountId)
+//                .name(name)
+//                .password(password)
+//                .phone(phone)
+//                .email(email)
+//                .role(roles)
+//                .build();
+//    }
+//    public Account (String name, String password, String email, String phone, Long socialId, SocialCode  socialCode, Set<AccountRoles>  roles){
+//        this.name=name;
+//        this.password = password;
+//        this.email=email;
+//        this.phone=phone;
+//        this.socialId = socialId;
+//        this.socialCode = socialCode;
+//        this.roles= roles;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Account{" + "accountId=" + accountId + ", name='" + name + '\'' + ", password='" + password + '\''
+//                + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", socialId=" + socialId
+//                + ", socialCode=" + socialCode + ", role=" + roles + '}';
+//    }
+//
 
-    public boolean matchPassword(String inputPassword, PasswordEncoder passwordEncoder) {
-        return passwordEncoder.matches(inputPassword, password);
-    }
+
+//    public boolean isGuestUser() {
+//        return false;
+//    }
+//	private static class GuestAccount extends Account {
+//        @Override
+//        public boolean isGuestUser() {
+//            return true;
+//        }
+//    }
+//
+//    public boolean matchPassword(String inputPassword, PasswordEncoder passwordEncoder) {
+//        return passwordEncoder.matches(inputPassword, password);
+//    }
 
 }

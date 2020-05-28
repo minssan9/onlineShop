@@ -17,12 +17,12 @@ public class HttpSessionUtils {
         return loginedUser != null;
     }
 
-    public static Account getAccountFromSession(NativeWebRequest webRequest) {
-        if (!isLoginUser(webRequest)) {
-            return Account.GUEST_USER;
-        }
-        return (Account) webRequest.getAttribute(USER_SESSION_KEY, WebRequest.SCOPE_SESSION);
-    }
+//    public static Account getAccountFromSession(NativeWebRequest webRequest) {
+//        if (!isLoginUser(webRequest)) {
+//            return Account.GUEST_USER;
+//        }
+//        return (Account) webRequest.getAttribute(USER_SESSION_KEY, WebRequest.SCOPE_SESSION);
+//    }
 
     public static boolean isLoginAccount(HttpSession httpSession) {
         Object sessionedAccount = httpSession.getAttribute(USER_SESSION_KEY);
@@ -32,12 +32,12 @@ public class HttpSessionUtils {
         return true;
     }
 
-    public static Account getAccountFromSession(HttpSession session) {
-        if (!isLoginAccount(session)) {
-            return Account.GUEST_USER;
-        }
-        return (Account) session.getAttribute(USER_SESSION_KEY);
-    }
+//    public static Account getAccountFromSession(HttpSession session) {
+//        if (!isLoginAccount(session)) {
+//            return Account.GUEST_USER;
+//        }
+//        return (Account) session.getAttribute(USER_SESSION_KEY);
+//    }
 
     public static boolean hasCart(HttpSession session) {
         Object sessionedCart = session.getAttribute(CART_KEY);

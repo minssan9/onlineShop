@@ -23,13 +23,12 @@ ResourceConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
-
         http
                 .anonymous()
                 .and()
                 .authorizeRequests()
                 .mvcMatchers(HttpMethod.POST, "/api/accounts/join/check").permitAll()
+                .antMatchers("/oauth/token").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/websockethandler/**").permitAll()
                 .antMatchers("/app/**").permitAll()

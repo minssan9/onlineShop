@@ -39,39 +39,39 @@ public class AccountService implements UserDetailsService {
         return new AccountAdapter(account);
     }
  
-    @Autowired
-    private PasswordEncoder bCryptPasswordEncoder;
-
-    public Account register(AccountDto signUpAccount) {
-        String encodedPassword = bCryptPasswordEncoder.encode(signUpAccount.getPassword());
-        return accountRepository.save(signUpAccount.builder().password(encodedPassword).build().toConsumer());
+//    @Autowired
+//    private PasswordEncoder bCryptPasswordEncoder;
+//
+//    public Account register(AccountDto signUpAccount) {
+//        String encodedPassword = bCryptPasswordEncoder.encode(signUpAccount.getPassword());
+//        return accountRepository.save(signUpAccount.builder().password(encodedPassword).build().toConsumer());
+//    }
+//
+    public Account socialRegister(Account signUpAccount) {
+        return accountRepository.save(signUpAccount);
     }
-
-    public Account socialRegister(AccountDto signUpAccount) {
-        return accountRepository.save(signUpAccount.toConsumer());
-    }
-
-    public Account findById(Long id) {
-        return accountRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-    }
-
+//
+//    public Account findById(Long id) {
+//        return accountRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+//    }
+//
     public Optional<Account> loginKakao(Long id) {
         return accountRepository.findBySocialIdAndSocialCode(id, SocialCode.KAKAO);
     }
-
-    public Account login(String username, String password) throws UnAuthenticationException {
-        return accountRepository.findByAccountId(username)
-                .filter(account -> account.matchPassword(password, bCryptPasswordEncoder))
-                .orElseThrow(() -> new UnAuthenticationException("비밀번호가 올바르지 않습니다."));
-    }
-
-    public List<AccountDto> findAll() {
-        return accountRepository.findAll().stream().map(a -> a.toAccountDto()).collect(Collectors.toList());
-    }
-
-    public List<Account> findAllUsers() {
-        return accountRepository.findAll();
-    }
+//
+//    public Account login(String username, String password) throws UnAuthenticationException {
+//        return accountRepository.findByAccountId(username)
+//                .filter(account -> account.matchPassword(password, bCryptPasswordEncoder))
+//                .orElseThrow(() -> new UnAuthenticationException("비밀번호가 올바르지 않습니다."));
+//    }
+//
+//    public List<AccountDto> findAll() {
+//        return accountRepository.findAll().stream().map(a -> a.toAccountDto()).collect(Collectors.toList());
+//    }
+//
+//    public List<Account> findAllUsers() {
+//        return accountRepository.findAll();
+//    }
 
 
 }

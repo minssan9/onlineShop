@@ -28,7 +28,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication
 @PropertySource(value = {"classpath:account.properties" })
-@CrossOrigin(origins = { "http://localhost:8091",  "http://localhost"})
+@CrossOrigin(origins = { "http://localhost:8091",  "http://localhost",
+        "https://kauth.kakao.com/oauth/token", "https://kapi.kakao.com/v2/user/me"})
 public class ShopApplication {
     @Value("${mail.sender.username}")
     private String mailSenderUsername;
