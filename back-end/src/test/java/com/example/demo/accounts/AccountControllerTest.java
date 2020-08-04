@@ -51,18 +51,18 @@ public class AccountControllerTest {
     @Autowired
     AccountRepository accountRepository;
 
-    @Test
-    public void getAccount() throws Exception {
-
-        createAccount();
-
-        this.mockMvc.perform(get("/api/accounts")
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + getAccessToken())
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk());
-    }
+//    @Test
+//    public void getAccount() throws Exception {
+//
+//        createAccount();
+//
+//        this.mockMvc.perform(get("/api/accounts")
+//                .header(HttpHeaders.AUTHORIZATION, "Bearer " + getAccessToken())
+//                .contentType(MediaType.APPLICATION_JSON_UTF8)
+//                .accept(MediaType.APPLICATION_JSON))
+//                .andDo(print())
+//                .andExpect(status().isOk());
+//    }
 
     public Account createAccount() {
 

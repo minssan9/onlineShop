@@ -65,36 +65,36 @@ public class CartControllerTest {
 
 
 
-    @Test
-    public void createCart() throws Exception {
-
-        // Given
-        createAccount();
-        Item item = createItem();
-
-
-        this.mockMvc.perform(post("/api/carts/{itemId}", item.getId())
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + getAccessToken())
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("item.id").value(item.getId()));
-    }
-
-    @Test
-    public void getCarts() throws Exception {
-
-        // Given
-        createAccount();
-
-        this.mockMvc.perform(get("/api/carts")
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + getAccessToken())
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk());
-    }
+//    @Test
+//    public void createCart() throws Exception {
+//
+//        // Given
+//        createAccount();
+//        Item item = createItem();
+//
+//
+//        this.mockMvc.perform(post("/api/carts/{itemId}", item.getId())
+//                .header(HttpHeaders.AUTHORIZATION, "Bearer " + getAccessToken())
+//                .contentType(MediaType.APPLICATION_JSON_UTF8)
+//                .accept(MediaType.APPLICATION_JSON))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("item.id").value(item.getId()));
+//    }
+//
+//    @Test
+//    public void getCarts() throws Exception {
+//
+//        // Given
+//        createAccount();
+//
+//        this.mockMvc.perform(get("/api/carts")
+//                .header(HttpHeaders.AUTHORIZATION, "Bearer " + getAccessToken())
+//                .contentType(MediaType.APPLICATION_JSON_UTF8)
+//                .accept(MediaType.APPLICATION_JSON))
+//                .andDo(print())
+//                .andExpect(status().isOk());
+//    }
 
 
     public Account createAccount() {
