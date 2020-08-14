@@ -3,11 +3,9 @@ package com.minssan9.shop.accounts;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.minssan9.shop.carts.Cart;
 import com.minssan9.shop.chats.Chat;
-import com.minssan9.shop.items.Item;
 import com.minssan9.shop.orders.Order;
 import com.minssan9.shop.qnas.QnA;
 import com.minssan9.shop.reviews.Review;
-
 import lombok.*;
 
 import javax.persistence.*;
