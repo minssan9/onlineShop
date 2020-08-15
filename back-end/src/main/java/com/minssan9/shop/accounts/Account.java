@@ -20,6 +20,7 @@ import java.util.Set;
 @EqualsAndHashCode(of = "id")
 @Builder
 @ToString
+@Table(name = "ACCOUNT")
 @JsonSerialize(using = AccountSerializer.class)
 public class Account {
 
