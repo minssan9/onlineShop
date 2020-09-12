@@ -22,7 +22,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/api/qna")
+@RequestMapping("/qna")
 public class QnAController {
 
     @Autowired

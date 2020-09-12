@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/reviews")
+@RequestMapping("/reviews")
 public class ReviewController {
 
     @Autowired

@@ -24,7 +24,7 @@ import java.io.File;
 import java.util.*;
 
 @RestController
-@RequestMapping(value = "/api/accounts")
+@RequestMapping(value = "/accounts")
 public class AccountController {
 
     private Logger logger = LoggerFactory.getLogger(AccountController.class);

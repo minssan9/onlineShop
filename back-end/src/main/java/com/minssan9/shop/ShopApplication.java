@@ -27,7 +27,7 @@ import java.util.Set;
 
 @SpringBootApplication
 @PropertySource(value = {"classpath:account.properties" })
-@CrossOrigin(value={"shop.voyagerss.com", "localhost"})
+@CrossOrigin(value={"http://shop.voyagerss.com", "http://localhost", "http://www.voyagerss.com"})
 @EnableAutoConfiguration
 public class ShopApplication {
 

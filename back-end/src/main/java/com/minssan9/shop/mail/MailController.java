@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/mails")
+@RequestMapping("/mails")
 public class MailController {
 
     private Logger logger= LoggerFactory.getLogger(ShopApplication.class);

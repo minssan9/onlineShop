@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/api/chats")
+@RequestMapping(value = "/chats")
 public class ChatController {
 
     @Autowired
