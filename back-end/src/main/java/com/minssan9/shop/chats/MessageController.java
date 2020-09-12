@@ -51,7 +51,7 @@ public class MessageController {
                 .senderName(message.getSenderName())
                 .sendMessage(message.getSendMessage())
                 .sendDateTime(LocalDateTime.now())
-                .read(message.getSenderName().equals("관리자") ? 1 : 0)
+                .readed(message.getSenderName().equals("관리자") ? 1 : 0)
                 .build();
 
         messageRepository.save(msg);

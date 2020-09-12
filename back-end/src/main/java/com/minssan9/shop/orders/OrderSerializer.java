@@ -17,7 +17,7 @@ public class OrderSerializer extends JsonSerializer<Order> {
         gen.writeNumberField("id",order.getId());
         gen.writeStringField("created",order.getOrderCreated().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")));
         gen.writeStringField("payment",order.getPayment());
-        gen.writeStringField("option",order.getOption());
+        gen.writeStringField("option",order.getOptions());
         gen.writeNumberField("status",order.getStatus());
         gen.writeObjectField("account",order.getAccount());
         gen.writeObjectField("item",order.getItem());

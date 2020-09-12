@@ -30,7 +30,7 @@ public class Message {
 
     private String senderName;
     private String sendMessage;
-    private int read;   // 읽지않음 0 읽음 1
+    private int readed;   // 읽지않음 0 읽음 1
     private LocalDateTime sendDateTime;
 
     @ManyToOne

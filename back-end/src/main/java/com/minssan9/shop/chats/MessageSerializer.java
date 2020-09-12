@@ -19,7 +19,7 @@ public class MessageSerializer extends JsonSerializer<Message> {
         gen.writeNumberField("accountId", message.getChat().getAccount().getId());
         gen.writeStringField("senderName", message.getSenderName());
         gen.writeStringField("sendMessage", message.getSendMessage());
-        gen.writeNumberField("read", message.getRead());
+        gen.writeNumberField("readed", message.getReaded());
         gen.writeStringField("sendDateTime", message.getSendDateTime().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")));
 
 

@@ -23,7 +23,7 @@ public class Order {
     private LocalDateTime orderCreated;
     private String payment;
     private int status;
-    private String option;
+    private String options;
 
     @OneToOne
     private Item item;

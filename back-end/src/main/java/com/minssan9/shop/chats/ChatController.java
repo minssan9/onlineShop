@@ -36,7 +36,7 @@ public class ChatController {
 
         for(int i=0; i<chats.size(); i++)
         {
-            int unRead = messageRepository.findByChat_IdAndRead(chats.get(i).getId(), 0).size();
+            int unRead = messageRepository.findByChat_IdAndReaded(chats.get(i).getId(), 0).size();
             chats.get(i).setUnRead(unRead);
 
             chatRepository.save(chats.get(i));
@@ -49,11 +49,11 @@ public class ChatController {
     @GetMapping("/read/{id}")    // 읽음처리
     public ResponseEntity read(@PathVariable Long id){
 
-        List<Message> messages = messageRepository.findByChat_IdAndRead(id, 0);
+        List<Message> messages = messageRepository.findByChat_IdAndReaded(id, 0);
 
         for(int i=0; i<messages.size(); i++)
         {
-            messages.get(i).setRead(1);
+            messages.get(i).setReaded(1);
             messageRepository.save(messages.get(i));
         }
 

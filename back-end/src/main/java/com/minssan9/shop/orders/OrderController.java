@@ -135,7 +135,7 @@ public class OrderController {
                     .build();
 
             if(itemList.get(i).getOptions().size()>0 && !itemList.get(i).getOptions().get(0).getOption().equals("선택"))
-                order.setOption(itemList.get(i).getOptions().get(0).getOption());
+                order.setOptions(itemList.get(i).getOptions().get(0).getOption());
 
             orderRepository.save(order);
         }
