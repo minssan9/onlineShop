@@ -72,7 +72,7 @@ public class ItemController {
 
         for (ItemOption option : item.getOptions()) {
             ItemOption itemOption = ItemOption.builder()
-                    .option(option.getOption())
+                    .options(option.getOptions())
                     .item(newItem)
                     .build();
 

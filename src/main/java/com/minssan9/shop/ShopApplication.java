@@ -28,7 +28,6 @@ import java.util.Set;
 @SpringBootApplication
 @PropertySource(value = {"classpath:account.properties" })
 @CrossOrigin(value={"http://shop.voyagerss.com", "http://localhost", "http://www.voyagerss.com"})
-@EnableAutoConfiguration
 public class ShopApplication {
 
     private Logger logger= LoggerFactory.getLogger(ShopApplication.class);
@@ -79,19 +78,19 @@ public class ShopApplication {
                 roles.add(AccountRoles.USER);
                 roles.add(AccountRoles.ADMIN);
 
-//                Account admin = Account.builder()
-//                        .accountId("관리자")
-//                        .email("bb@bb.com")
-//                        .address("서울특별시")
-//                        .name("관리자")
-//                        .password("pass")
-//                        .phone("01000000000")
-//                        .roles(roles)
-//                        .level(50)
-//                        .point(7777)
-//                        .build();
-//
-//                Account saveAccount2 = accountService.createAccount(admin);
+                Account admin = Account.builder()
+                        .accountId("관리자")
+                        .email("bb@bb.com")
+                        .address("서울특별시")
+                        .name("관리자")
+                        .password("pass")
+                        .phone("01000000000")
+                        .roles(roles)
+                        .level(50)
+                        .point(7777)
+                        .build();
+
+                Account saveAccount2 = accountService.createAccount(admin);
 //
 //                Chat chat2= Chat.builder()
 //                        .account(saveAccount2)

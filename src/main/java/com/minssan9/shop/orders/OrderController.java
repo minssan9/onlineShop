@@ -134,8 +134,8 @@ public class OrderController {
                     .payment("카드")
                     .build();
 
-            if(itemList.get(i).getOptions().size()>0 && !itemList.get(i).getOptions().get(0).getOption().equals("선택"))
-                order.setOptions(itemList.get(i).getOptions().get(0).getOption());
+            if(itemList.get(i).getOptions().size()>0 && !itemList.get(i).getOptions().get(0).getOptions().equals("선택"))
+                order.setOptions(itemList.get(i).getOptions().get(0).getOptions());
 
             orderRepository.save(order);
         }

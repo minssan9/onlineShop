@@ -21,7 +21,7 @@ public class ItemOption {
     @Id
     @GeneratedValue
     private Long id;
-    private String option;
+    private String options;
 
     @JsonIgnore
     @ManyToOne
