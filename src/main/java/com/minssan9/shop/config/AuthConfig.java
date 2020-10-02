@@ -2,6 +2,7 @@ package com.minssan9.shop.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,7 +18,8 @@ import com.minssan9.shop.accounts.AccountService;
 @Configuration
 @EnableAuthorizationServer
 public class AuthConfig extends AuthorizationServerConfigurerAdapter {
-
+    @Value("${encodeKey}")
+    String encodeKey;
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -41,7 +43,7 @@ public class AuthConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("id")
-                .secret(this.passwordEncoder.encode("secret"))
+                .secret(this.passwordEncoder.encode(encodeKey))
                 .authorizedGrantTypes("password", "refresh_token")
                 .scopes("read", "write")
                 .accessTokenValiditySeconds(60 * 10 * 60)

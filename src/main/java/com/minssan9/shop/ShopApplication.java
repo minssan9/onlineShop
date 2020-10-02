@@ -70,7 +70,7 @@ public class ShopApplication {
 
             @Autowired
             ChatRepository chatRepository;
-            
+
             @Override
             public void run(ApplicationArguments args) throws Exception {
 
@@ -91,12 +91,12 @@ public class ShopApplication {
                         .build();
 
                 Account saveAccount2 = accountService.createAccount(admin);
-//
-//                Chat chat2= Chat.builder()
-//                        .account(saveAccount2)
-//                        .build();
-//
-//                chatRepository.save(chat2);
+
+                Chat chat2= Chat.builder()
+                        .account(saveAccount2)
+                        .build();
+
+                chatRepository.save(chat2);
             }
         };
     }

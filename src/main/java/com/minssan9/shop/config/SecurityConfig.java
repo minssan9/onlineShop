@@ -15,8 +15,6 @@ import com.minssan9.shop.accounts.AccountService;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-
     @Autowired
     AccountService accountService;
 
