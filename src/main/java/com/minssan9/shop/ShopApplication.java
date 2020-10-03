@@ -8,6 +8,7 @@ import com.minssan9.shop.chats.ChatRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,9 +30,16 @@ import java.util.Set;
 @PropertySource(value = {"classpath:account.properties" })
 @CrossOrigin(value={"http://shop.voyagerss.com", "http://localhost", "http://www.voyagerss.com"})
 public class ShopApplication {
-
     private Logger logger= LoggerFactory.getLogger(ShopApplication.class);
 
+
+    @Value("${email.account}")
+    String emailAccount;
+    @Value("${email.password}")
+    String emailPassword;
+
+    @Value("${file-resources-path}")
+    public static String FILE_RESOURCES_PATH;
 
     public static void main(String[] args) {
         SpringApplication.run(ShopApplication.class, args);
@@ -50,8 +58,8 @@ public class ShopApplication {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("4voya9ers");
-        mailSender.setPassword("dugodwk1");
+        mailSender.setUsername(emailAccount);
+        mailSender.setPassword(emailPassword);
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
@@ -73,30 +81,30 @@ public class ShopApplication {
 
             @Override
             public void run(ApplicationArguments args) throws Exception {
-
-                Set<AccountRoles> roles = new HashSet();
-                roles.add(AccountRoles.USER);
-                roles.add(AccountRoles.ADMIN);
-
-                Account admin = Account.builder()
-                        .accountId("관리자")
-                        .email("bb@bb.com")
-                        .address("서울특별시")
-                        .name("관리자")
-                        .password("pass")
-                        .phone("01000000000")
-                        .roles(roles)
-                        .level(50)
-                        .point(7777)
-                        .build();
-
-                Account saveAccount2 = accountService.createAccount(admin);
-
-                Chat chat2= Chat.builder()
-                        .account(saveAccount2)
-                        .build();
-
-                chatRepository.save(chat2);
+//
+//                Set<AccountRoles> roles = new HashSet();
+//                roles.add(AccountRoles.USER);
+//                roles.add(AccountRoles.ADMIN);
+//
+//                Account admin = Account.builder()
+//                        .accountId("관리자")
+//                        .email("bb@bb.com")
+//                        .address("서울특별시")
+//                        .name("관리자")
+//                        .password("pass")
+//                        .phone("01000000000")
+//                        .roles(roles)
+//                        .level(50)
+//                        .point(7777)
+//                        .build();
+//
+//                Account saveAccount2 = accountService.createAccount(admin);
+//
+//                Chat chat2= Chat.builder()
+//                        .account(saveAccount2)
+//                        .build();
+//
+//                chatRepository.save(chat2);
             }
         };
     }

@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import static com.minssan9.shop.ShopApplication.FILE_RESOURCES_PATH;
+
 @RestController
 @RequestMapping("/items")
 public class ItemController {
@@ -148,7 +150,7 @@ public class ItemController {
 
         List<ItemFile> itemFileList = new ArrayList<>();
 
-        String uploadFolder = "C:\\Users\\kim\\git\\Market\\project\\src\\main\\resources\\templates\\uploads";
+        String uploadFolder = FILE_RESOURCES_PATH + "\\item\\";
 
 
         for (MultipartFile multipartFile : uploadFile) {
@@ -181,7 +183,7 @@ public class ItemController {
     @ResponseBody
     public ResponseEntity<Resource> downloadFile(String fileName) {
 
-        Resource resource = new FileSystemResource("C:\\Users\\kim\\git\\Market\\project\\src\\main\\resources\\templates\\uploads\\" + fileName);
+        Resource resource = new FileSystemResource(FILE_RESOURCES_PATH + "\\item\\" + fileName);
 
         return new ResponseEntity(resource, HttpStatus.OK);
     }
