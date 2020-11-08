@@ -3,10 +3,8 @@ package com.minssan9.shop.items;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.awt.*;
 
 @Entity
 @Setter
@@ -15,7 +13,6 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of="id")
-@ToString
 public class ItemOption {
 
     @Id
@@ -24,6 +21,6 @@ public class ItemOption {
     private String options;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Item item;
 }

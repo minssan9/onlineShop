@@ -32,7 +32,7 @@ public class Item {
     @Column(length = 3000)
     private String content;
 
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ItemOption> options;
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
     private List<ItemFile> itemFileList;
