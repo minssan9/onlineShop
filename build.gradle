@@ -67,11 +67,13 @@ querydsl {
     querydslSourcesDir = querydslDir
 }
 
+
 group = 'com.minssan9'
 //version = '0.0.1-SNAPSHOT'
-description = 'shop_API'
+description = 'shop API Server '
 sourceCompatibility = '1.8'
- 
+rootProject.name = 'shop_API'
+
 jar {
     manifest {
         attributes  'Main-Class': 'com.seohan.SeohanWebApplication'
