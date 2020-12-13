@@ -69,7 +69,7 @@ querydsl {
 
 group = 'com.minssan9'
 //version = '0.0.1-SNAPSHOT'
-description = 'shop'
+description = 'shop_API'
 sourceCompatibility = '1.8'
 
 //buildDir = 'target'
