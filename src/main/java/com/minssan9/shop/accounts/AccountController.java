@@ -2,7 +2,7 @@ package com.minssan9.shop.accounts;
 
 import com.minssan9.shop.chats.Chat;
 import com.minssan9.shop.chats.ChatRepository;
-import com.minssan9.shop.items.ItemFile;
+import com.minssan9.shop.aop.LogExecutionTime;
 import com.minssan9.shop.items.ItemRepository;
 
 import org.slf4j.Logger;
@@ -58,6 +58,7 @@ public class AccountController {
 
     @GetMapping
     @Description("로그인 사용자 정보가져오기")
+    @LogExecutionTime
     public ResponseEntity<Account> getAccount(@AuthenticationPrincipal AccountAdapter adapter) {
 
         if (adapter == null) {
